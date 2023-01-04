@@ -16,8 +16,6 @@ import pandas as pd  # install using 'pip install pandas'
 from datetime import datetime
 import time
 
-import Forex.cuentas as cuentas
-
 
 # function to send a market order
 def market_order(symbol, volume, order_type, **kwargs):
@@ -103,6 +101,13 @@ def signal(symbol, timeframe, sma_period):
 
     return last_close, sma, direction
 
+def demo():
+    mt5.initialize()
+    mt5.login(
+        login = 211373867,
+        password = 'uSa5UvAs',
+        server = 'OctaFX-Demo'
+    )
 
 if __name__ == '__main__':
 
@@ -113,7 +118,7 @@ if __name__ == '__main__':
     SMA_PERIOD = 3
     DEVIATION = 20
 
-    cuentas.demo()
+    demo()
 
     while True:
         # calculating account exposure
